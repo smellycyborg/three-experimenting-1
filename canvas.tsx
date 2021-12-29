@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import '../App.css'
 import * as THREE from 'three';
 
@@ -8,6 +8,8 @@ let renderer: THREE.WebGLRenderer
 let boxGeometry: THREE.BoxGeometry
 let material: THREE.MeshBasicMaterial
 let mesh: THREE.Mesh
+
+let text: string
 
 scene = new THREE.Scene()
 
@@ -50,11 +52,23 @@ document.body.appendChild<HTMLCanvasElement>(renderer.domElement)
 camera.position.z = 5
 
 renderer.render(scene, camera)
+
+// react stuff
+
 export const Canvas: React.FC = () => {
+
+    const [ changeText, setChangeText ] = useState<string>('')
+    text = changeText
     
     return (
-        <div>
-            
-        </div>
+        <>
+            <div className='text'>
+                {text}
+            </div>
+            <div className='input'>
+                <input onChange={(e: React.ChangeEvent<HTMLInputElement>) => { setChangeText(e.target.value); } }></input>
+                {/* <button onClick={}></button> */}
+            </div>
+        </>
     )
 }

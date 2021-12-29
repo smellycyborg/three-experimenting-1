@@ -1,3 +1,19 @@
 * {
   margin: 0;
 }
+
+.text {
+  position: absolute;
+  color: rgb(255, 0, 157);
+  z-index: 99;
+  left: 50%;
+  top: 50%;
+  }
+
+  .input {
+    position: absolute;
+    color: rgb(255, 0, 157);
+    z-index: 99;
+    left: 52%;
+    top: 52%;
+    }
