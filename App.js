@@ -3,8 +3,9 @@ import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
+// function sets up environment varialbes and returns them
+// TODO: make this a seperate component
 function setTable() {
-
   const table = []
     
   let scene, camera, renderer, light, controls, gltfLoader
@@ -35,13 +36,12 @@ function setTable() {
   table.push(camera)
   table.push(controls)
   table.push(light)
-  // table.push(gltfLoader)
 
-  console.log(table)
   return table
 }
 
-function initTable() {
+// function modifies our environment variables 
+function modifyTable() {
   const [ scene, renderer, camera, controls, light ] = setTable()
 
   renderer.setSize(window.innerWidth, window.innerHeight)
@@ -63,7 +63,7 @@ function initTable() {
   animate()
 }
 
-initTable()
+modifyTable()
 
 function App() {
   return (
